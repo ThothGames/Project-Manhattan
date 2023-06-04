@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Game_pl
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: pl
+  m_SharedData: {fileID: 11400000, guid: 2c59d83d83ed1a24bb6c82829adb5678, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 39904387072
+    m_Localized: Nowa gra
+    m_Metadata:
+      m_Items: []
+  - m_Id: 99920683008
+    m_Localized: "Wczytaj gr\u0119"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16424382537728
+    m_Localized: overflow
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16470469550080
+    m_Localized: stack
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 1
