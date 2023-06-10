@@ -10,23 +10,20 @@ public interface IRevivable
 
 public class RevivableObject : MonoBehaviour, IRevivable
 {
+    [SerializeField] private LifeChangeStateEffect lifeChangeEffect;
     [SerializeField] private bool isAlive;
     public bool IsAlive  => isAlive;
-
-    [SerializeField] private MeshRenderer meshRenderer;
-
 
 
     public void Revive()
     {
         isAlive = true;
-        meshRenderer.materials[2].EnableKeyword("_EMISSION");   // tutaj event(abstrakcjê) do obiektu, który ma mieæ konkretne zachowanie
+        lifeChangeEffect.EffectAfterReviving();
     }
 
     public void Kill()
     {
         isAlive = false;
-        meshRenderer.materials[2].DisableKeyword("_EMISSION");   // tutaj event(abstrakcjê) do obiektu, który ma mieæ konkretne zachowanie
+        lifeChangeEffect.EffectAfterKilling();
     }
 }
-

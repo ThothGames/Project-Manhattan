@@ -18,7 +18,7 @@ public class RevivingController : MonoBehaviour
             ReviveObject();
         }
 
-        if (Input.GetMouseButtonDown(1))
+        else if (Input.GetMouseButtonDown(1))
         {
             KillObject();
         }
