@@ -5,7 +5,7 @@ using Bipolar.RaycastSystem;
 
 public class RevivingController : MonoBehaviour
 {
-    [SerializeField] private RevivableObject revivableObject;
+    [SerializeField] private IRevivable revivableObject;
     [SerializeField] private int reviveStack;
     [SerializeField] private bool isCollision;
 
@@ -23,7 +23,7 @@ public class RevivingController : MonoBehaviour
             KillObject();
         }
     }
-
+    
     private void ReviveObject()
     {
         if (CheckReviveCondition())
@@ -51,7 +51,7 @@ public class RevivingController : MonoBehaviour
         if (target == null)
             return false;
 
-        revivableObject = target.GetComponent<RevivableObject>();           // do refaktoryzacji !!!
+        revivableObject = target.GetComponent<IRevivable>();           // do refaktoryzacji !!!
         if (revivableObject == null)
             return false;
 
@@ -66,7 +66,7 @@ public class RevivingController : MonoBehaviour
         if (target == null)
             return false;
 
-        revivableObject = target.GetComponent<RevivableObject>();           // do refaktoryzacji !!!
+        revivableObject = target.GetComponent<IRevivable>();           // do refaktoryzacji !!!
         if (revivableObject == null)
             return false;
 

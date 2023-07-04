@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 
-class VodoPumpkinLifeChangeStateEffect : LifeChangeStateEffect
+class MoveEffect : LifeStateChangeEffect
 {
     private enum MovementType
     {
-        Target,
-        Shift,
+        Target, //global
+        Shift,  //local
     }
 
     //Settings nie zmienia się w trakcie gry. Settings nie może zmienić się sam ale inny obiekt może je zmieniać.
@@ -18,13 +18,8 @@ class VodoPumpkinLifeChangeStateEffect : LifeChangeStateEffect
     [Header("State")]
     [SerializeField] private Vector3 targetPosition;
     [SerializeField] private bool isMoving;
+    [SerializeField] private bool isRevivingEffect;
     private Vector3 initialPosition;
-
-    private void Start()
-    {
-        Application.targetFrameRate = 100;
-    }
-
 
     private void Update()
     {
@@ -48,6 +43,7 @@ class VodoPumpkinLifeChangeStateEffect : LifeChangeStateEffect
         }
 
         isMoving = true;
+        isRevivingEffect = true;
         initialPosition = transform.position;
     }
 
@@ -61,11 +57,17 @@ class VodoPumpkinLifeChangeStateEffect : LifeChangeStateEffect
         {
             targetPosition = transform.position - positionShift;
         }
+
         isMoving = true;
+        isRevivingEffect = false;
     }
 
     private void MoveObject()
     {
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+        if (isRevivingEffect)
+            OnRevivingEffectEnded?.Invoke();
+        else
+            OnKillingEffectEnded?.Invoke();
     }
 }
